@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>muhanxue - 暮寒雪</title>
+  <meta name="description" content="暮寒雪，技术分享，博客，文章">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+
+  <link rel="stylesheet" href="component/bootstrap/css/bootstrap.min.css">
+
+
+
+  <!-- 中文布局 -->
+  <link rel="stylesheet" href="css/typo.css">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main-c.css">
+
+  <link rel="stylesheet" href="css/index.css">
+
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+  <div class="container h-100">
+
+    <header class="position-absolute mb-5 mt-4">
+      <nav>
+        <a href="/">
+          <span>
+            muhanxue.com</span>
+        </a>
+      </nav>
+    </header>
+    <div class="d-flex justify-content-center h-100">
+      <div class="align-self-center text-center">
+        <div class="row mb-3">
+          <div class="col">
+            <img src="icon.png" style="width: 58px;height: 58px;" class="figure-img img-fluid">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <a href="essays.html">
+              essays
+            </a>
+          </div>
+          <div class="col">
+            <a id="kikiday" href="#">
+              0
+            </a>
+
+          </div>
+          <div class="col">
+            <a href="mailto:ilove@muhanxue.com">
+              email
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script> -->
+
+  <script>
+    function runTime(y = 1970, m = 0, d = 1) {
+      var diff = new Date() - new Date(y, m - 1, d);
+      var days = Math.floor(diff / (24 * 3600 * 1000));
+      if (document.getElementById("kikiday"))
+        document.getElementById("kikiday").innerHTML = days;
+    }
+    runTime(2017, 8, 29);
+  </script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-119686278-5', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>

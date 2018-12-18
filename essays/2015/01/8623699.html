@@ -1,0 +1,125 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MVC web api 返回JSON的几种方式，Newtonsoft.Json序列化日期时间去T的几种方式 - 暮寒雪</title>
+    <meta name="description" content="MVC web api 返回JSON的几种方式，Newtonsoft.Json序列化日期时间去T的几种方式">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="../../../site.webmanifest">
+    <link rel="apple-touch-icon" href="../../../icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+
+    <link rel="stylesheet" href="../../../component/bootstrap/css/bootstrap.min.css">
+
+    <!-- markdown -->
+    <link rel="stylesheet" href="../../../css/github-markdown.css">
+    <!-- 中文布局 -->
+    <link rel="stylesheet" href="../../../css/typo.css">
+
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../../css/main-c.css">
+    <style>
+        /* .a-date {
+            color: #999;
+            font-size: 12px;
+        } */
+    </style>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+    <div class="container h-100">
+
+        <header class="mb-4 mt-4">
+            <nav>
+                <a href="/">
+                    <span>
+                        muhanxue.com</span>
+                </a>
+                <span>
+                    ></span>
+                <a href="/essays.html">
+                    <span>
+                        essays</span>
+                </a>
+            </nav>
+        </header>
+        <div class="d-none d-md-block d-lg-block mb-1">&nbsp;</div>
+        <section>
+            <article class="mb-3 col-md-8 offset-md-2">
+                <h5>MVC web api 返回JSON的几种方式，Newtonsoft.Json序列化日期时间去T的几种方式</h5>
+                <p>
+                    <small class="a-date">
+                        <time>2015-01-18 00:11</time>
+                        <a href="https://www.muhanxue.com/essays/2015/01/8623699.html" rel="nofollow">https://www.muhanxue.com/essays/2015/01/8623699.html</a>
+                    </small>
+                </p>
+                <div class="mt-4 a-content">
+                    <div class="markdown-body">
+                        <h4>MVC web api 返回JSON的几种方式</h4>
+                        <p>1、在
+                            <code>WebApiConfig</code>的
+                            <code>Register</code>中加入以下代码</p>
+                        <pre><code>config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));</code></pre>
+                        <p>2、在
+                            <code>WebApiConfig</code>的
+                            <code>Register</code>中加入以下代码</p>
+                        <pre><code>config.Formatters.Remove(config.Formatters.XmlFormatter);</code></pre>
+                        <p>3、在
+                            <code>WebApiApplication</code>的
+                            <code>Application_Start</code>中加入以下代码</p>
+                        <pre><code>GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();</code></pre>
+                        <h4>在MVC中全局去除时间格式中带T的问题。</h4>
+                        <p>1、MVC中默认使用Newtonsoft.Json序列化的，所以在
+                            <code>WebApiConfig</code>的
+                            <code>Register</code>中加入以下代码即可</p>
+                        <pre><code>GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new IsoDateTimeConverter
+{
+    DateTimeFormat = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
+});</code></pre>
+                        <p>2、在
+                            <code>webservice</code>中去除时间带T的问题。</p>
+                        <pre><code>IsoDateTimeConverter timejson = new IsoDateTimeConverter
+{
+    DateTimeFormat = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
+};
+//在序列化的时候传入timejson对象
+return JsonConvert.SerializeObject(object, timejson); // object是需要序列化的对象</code></pre>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../../../js/vendor/modernizr-3.6.0.min.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-119686278-5', 'auto'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>

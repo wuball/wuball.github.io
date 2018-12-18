@@ -1,0 +1,132 @@
+<!doctype html>
+
+
+
+<html class="no-js" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Windows Server 2012 / 2016 安装 .Net Framework 3.5（PowerShell） - 暮寒雪</title>
+    <meta name="description" content="使用 Windows Server 2012 R2 或 Windows Server 2016系统，发现在安装 .net 3.5.1 时报错">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="../../../site.webmanifest">
+    <link rel="apple-touch-icon" href="../../../icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+
+    <link rel="stylesheet" href="../../../component/bootstrap/css/bootstrap.min.css">
+
+    <!-- markdown -->
+    <link rel="stylesheet" href="../../../css/github-markdown.css">
+    <!-- 中文布局 -->
+    <link rel="stylesheet" href="../../../css/typo.css">
+
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../../css/main-c.css">
+    <style>
+        /* .a-date {
+            color: #999;
+            font-size: 12px;
+        } */
+    </style>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+    <div class="container h-100">
+
+        <header class="mb-4 mt-4">
+            <nav>
+                <a href="/">
+                    <span>
+                        muhanxue.com</span>
+                </a>
+                <span>
+                    ></span>
+                <a href="/essays.html">
+                    <span>
+                        essays</span>
+                </a>
+            </nav>
+        </header>
+        <div class="d-none d-md-block d-lg-block mb-1">&nbsp;</div>
+        <section>
+            <article class="mb-3 col-md-8 offset-md-2">
+                <h5>Windows Server 2012 / 2016 安装 .Net Framework 3.5（PowerShell）</h5>
+                <p>
+                    <small class="a-date">
+                        <time>2015-01-18 00:11</time>
+                        <a href="https://www.muhanxue.com/essays/2017/04/3736598.html" rel="nofollow">https://www.muhanxue.com/essays/2017/04/3736598.html</a>
+                    </small>
+                </p>
+                <div class="mt-4 a-content">
+                    <div class="markdown-body">
+                        <h4>问题描述</h4>
+                        <p>使用
+                            <code>Windows Server 2012 R2</code> 或
+                            <code>Windows Server 2016</code>系统，发现在安装
+                            <code>.net 3.5.1</code> 时报错，报错内容如下</p>
+                        <p>
+                            <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/wuball/img/master/24256887952783693328925795283587.jpg">
+                                <img src="https://raw.githubusercontent.com/wuball/img/master/24256887952783693328925795283587.jpg" alt="" style="max-width:100%;">
+                            </a>
+                        </p>
+                        <h4>原因分析</h4>
+                        <p>找不到安装源文件。</p>
+                        <h4>解决办法</h4>
+                        <p>可以通过如下
+                            <code>PowerShell</code> 脚本进行安装</p>
+                        <ol>
+                            <li>从开始菜单中找到
+                                <code>PowerShell</code>，右击选择 以管理员身份运行</li>
+                            <li>输入如下脚本后回车执行</li>
+                        </ol>
+                        <pre><code>Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU' -Name UseWUServer -Value 0
+                            
+Restart-Service -Name wuauserv
+                            
+Install-WindowsFeature Net-Framework-Core
+                            
+Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU' -Name UseWUServer -Value 1
+                            
+Restart-Service -Name wuauserv</code></pre>
+                        <h4>未知意外</h4>
+                        <p>如果未顺利执行，请检查
+                            <code>windows update 服务</code> 是否能正常启动</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../../../js/vendor/modernizr-3.6.0.min.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-119686278-5', 'auto'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>
