@@ -1,0 +1,139 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>个人支付宝免接口转账自动通知后台插件 - 暮寒雪</title>
+    <meta name="description" content="个人支付宝对外收款时，根据每笔账单的信息与自身系统后台交互">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="../../../site.webmanifest">
+    <link rel="apple-touch-icon" href="../../../icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+
+    <link rel="stylesheet" href="../../../component/bootstrap/css/bootstrap.min.css">
+
+    <!-- markdown -->
+    <link rel="stylesheet" href="../../../css/github-markdown.css">
+    <!-- 中文布局 -->
+    <link rel="stylesheet" href="../../../css/typo.css">
+
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../../css/main-c.css">
+    <style>
+        /* .a-date {
+            color: #999;
+            font-size: 12px;
+        } */
+    </style>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+    <div class="container h-100">
+
+        <header class="mb-4 mt-4">
+            <nav>
+                <a href="/">
+                    <span>
+                        muhanxue.com</span>
+                </a>
+                <span>
+                    ></span>
+                <a href="/essays.html">
+                    <span>
+                        essays</span>
+                </a>
+            </nav>
+        </header>
+        <div class="d-none d-md-block d-lg-block mb-1">&nbsp;</div>
+        <section>
+            <article class="mb-3 col-md-8 offset-md-2">
+                <h5>个人支付宝免接口转账自动通知后台插件</h5>
+                <p>
+                    <small class="a-date">
+                        <time>2018-06-04 09:12</time>
+                        <a href="https://www.muhanxue.com/essays/2018/06/5327427.html" rel="nofollow">https://www.muhanxue.com/essays/2018/06/5327427.html</a>
+                    </small>
+                </p>
+                <div class="mt-4 a-content">
+                    <div class="markdown-body">
+                        <h4>介绍</h4>
+                        <p>github：
+                            <a href="https://github.com/wuball/codes/tree/master/chrome/zhifubao/zhuanzhang">github.com/wuball/codes/tree/master/chrome/zhifubao/zhuanzhang</a>
+                            <br> 个人支付宝对外收款时，根据每笔账单的信息与自身系统后台交互
+                            <br> 目的是解决过多的支付渠道，账单难以统一处理
+                            <br> 利用此类工具可将微信、支付宝等账单统一推送至指定地址，进行统一管理
+                            <br> 此方法只是众多实现方式的其中一种，欢迎讨论
+                        </p>
+                        <h4>适用</h4>
+                        <p>有一定技术能力的程序员
+                            <br> 有打赏功能的文章
+                            <br> 想统一管理个人账单
+                        </p>
+                        <h4>应用技巧</h4>
+                        <p>文章下添加转账（打赏）二维码，提示转账时，在备注输入用户名，转账成功后，在文章底部实时显示转账用户名、转账金额、转账时间</p>
+                        <h4>使用方式</h4>
+                        <h5>谷歌浏览器</h5>
+                        <p>下载代码
+                            <a href="https://github.com/wuball/codes/tree/master/chrome/zhifubao/zhuanzhang">github.com/wuball/codes/tree/master/chrome/zhifubao/zhuanzhang</a>
+                            <br> 将
+                            <code>getorder.js</code> 文件内开头的
+                            <code>payurl</code> 替换为将要通知的接口地址，必须要
+                            <code>https</code>
+                            <br> 地址栏输入
+                            <code>chrome://extensions</code>
+                            <br> 右上角打开
+                            <code>开发者模式</code>
+                            <br> 左上角点击
+                            <code>加载已解压的扩展程序</code>
+                            <br> 选择下载的代码目录，点确定
+                            <br> 登录支付宝，打开路径
+                            <a href="https://mbillexprod.alipay.com/enterprise/fundAccountDetail.htm" rel="nofollow">mbillexprod.alipay.com/enterprise/fundAccountDetail.htm</a>
+                            <br> 在账单表头把
+                            <code>备注</code>勾选显示
+                            <br> 部署已完成，需要在应用场景处提示用户转账时添加特定的备注
+                        </p>
+                        <h4>后台主要接收参数</h4>
+                        <blockquote>
+                            <p>流水号
+                                <br> 金额
+                                <br> 备注账号
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../../../js/vendor/modernizr-3.6.0.min.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-119686278-5', 'auto'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>
